@@ -59,6 +59,10 @@
       <span class="aide">Facultatif.</span></label>
     <textarea id="intouchable" maxlength="600"></textarea>
 
+    <label for="observations">Observations / prérequis
+      <span class="aide">Facultatif : remarques, contraintes, ce qui doit exister avant.</span></label>
+    <textarea id="observations" maxlength="800"></textarea>
+
     <label>Priorité</label>
     <div class="priorites" role="radiogroup">
       <button type="button" data-valeur="basse">Basse</button>
@@ -96,7 +100,8 @@
       return;
     }
     const donnees = { type: "demande_evolution", v: 1, titre: val("titre"), quoi: val("quoi"),
-      pourquoi: val("pourquoi"), verification: val("verification"), intouchable: val("intouchable"), priorite };
+      pourquoi: val("pourquoi"), verification: val("verification"), intouchable: val("intouchable"),
+      observations: val("observations"), priorite };
     const json = JSON.stringify(donnees);
     if (new TextEncoder().encode(json).length > 4000) {
       document.getElementById("message-erreur").textContent = "Texte trop long : raccourcis un peu tes réponses.";
